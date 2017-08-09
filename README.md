@@ -8,6 +8,13 @@ The model reaches validation accuracy of ~95% in 20 Epochs and is extremely fast
 
 It shows how transfer learning can be used to solve classification tasks, by building sleek and prodigiously fast model.
 
+
+Steps:
+Run the model using file "transferModel.py"
+
+Note:
+Images transformations are created if number of images for any class are less than 500
+
 References:
 <br/>
 Image transformation: https://github.com/vxy10/ImageAugmentation
