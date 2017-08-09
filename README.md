@@ -24,8 +24,7 @@ Run the model using file "transferModel.py"
 Note:
 Images transformations are created if number of images for any class are less than 500
 
-References:
-<br/>
+#### References:
 Image transformation: https://github.com/vxy10/ImageAugmentation
 <br/>
 VGG16 Model: https://github.com/machrisaa/tensorflow-vgg
