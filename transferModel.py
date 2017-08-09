@@ -61,6 +61,7 @@ model.add(Activation('softmax'))
 
 
 # Compile and fit model
+# LR scheduler added which updates LR every 10 epochs
 model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
 model.fit(X_train, y_train, batch_size=32, nb_epoch=EPOCHS, validation_data=(X_test, y_test), callbacks=[lr_scheduler])
 

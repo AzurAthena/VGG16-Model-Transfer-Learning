@@ -27,6 +27,7 @@ else:
 
 
 # --------------------------------------------------------------
+# transform images if data is too less
 contents = os.listdir(data_dir)
 classes = [each for each in contents if os.path.isdir(data_dir + each)]
 print('Classes found:', classes)
@@ -36,7 +37,7 @@ print('Creating image transformations wherever data is less:')
 dataHandler.transform_images(data_dir=data_dir, minimum_files_required=500)
 
 # -----------------------------------------------------------
-# Create transfer codes for eac image and store in files 'codes, labels'
+# Create transfer codes for each image and store in files 'codes, labels'
 batch_size = 10
 codes_list = []
 labels = []
@@ -60,8 +61,8 @@ with tf.Session() as sess:
         class_path = data_dir + each
         files = os.listdir(class_path)
         for ii, file in enumerate(files, 1):
+
             # Add images to the current batch
-            # utils.load_image crops the input images for us, from the center
             img = utils.load_image(os.path.join(class_path, file))
             batch.append(img.reshape((1, 224, 224, 3)))
             labels.append(each)
@@ -72,11 +73,11 @@ with tf.Session() as sess:
                 # Image batch to pass to VGG network
                 images = np.concatenate(batch)
 
-                # TODO: Get the values from the relu6 layer of the VGG network
+                # Get the values from the relu6 layer of the VGG network
                 feed_dict = {input_: images}
                 codes_batch = sess.run(vgg.relu6, feed_dict=feed_dict)
 
-                # Here I'm building an array of the codes
+                # store the codes in an array
                 if codes is None:
                     codes = codes_batch
                 else:
@@ -87,12 +88,12 @@ with tf.Session() as sess:
                 print('{} images processed'.format(ii))
 
 # -----------------------------------------------------------
-# write codes to file
+# store codes locally
 with open('codes', 'w') as f:
     codes.tofile(f)
     print('Transfer codes saved to file "codes" in project directory')
 
-# write labels to file
+# store labels locally
 with open('labels', 'w') as f:
     writer = csv.writer(f, delimiter='\n')
     writer.writerow(labels)

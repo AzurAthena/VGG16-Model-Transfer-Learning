@@ -4,6 +4,7 @@ import cv2
 import time
 import sys
 
+
 def augment_brightness_camera_images(image):
     image1 = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
     random_bright = .25+np.random.uniform()
@@ -87,7 +88,7 @@ def transform_images(data_dir='GOT/', minimum_files_required=500):
             print('Total images after transformations:', max)
             print('Done!')
         else:
-            print('Minimum files required found! No transformations applied')
+            print('Minimum files required found! No transformations applied.')
 
 
 def reporthook(count, block_size, total_size):
@@ -123,15 +124,16 @@ def one_hot_encode(x):
     return np.array(output), n_classes
 
 
-
 def scheduler(epoch):
     current_lr = 0.001
     epoch_step = 10
     if epoch == 0:
         updated_lr = current_lr
+        print('Initial LR set to:', updated_lr)
     elif epoch % epoch_step == 0:
         dividend = epoch // epoch_step
         updated_lr = current_lr/dividend
+        print('LR updated to:', updated_lr)
     else:
         updated_lr = current_lr
     return updated_lr
