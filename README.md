@@ -10,7 +10,6 @@ It shows how transfer learning can be used to solve classification tasks, by bui
 
 
 #### Steps:
-<br/>
 Run the model using file "transferModel.py"
 
 #### Overview:
