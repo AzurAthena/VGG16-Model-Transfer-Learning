@@ -6,7 +6,7 @@ After creating trasnfer codes using the existing model, we have added fully conn
 
 #### The model reaches validation accuracy of ~95% in 20 Epochs and is extremely fast!
 
-It shows how transfer learning can be used to solve classification tasks, by building sleek and prodigiously fast model.
+It shows how transfer learning can be used to solve classification tasks, by building sleek and prodigiously fast models.
 
 
 #### Steps:
