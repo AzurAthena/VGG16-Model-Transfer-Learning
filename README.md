@@ -9,8 +9,18 @@ The model reaches validation accuracy of ~95% in 20 Epochs and is extremely fast
 It shows how transfer learning can be used to solve classification tasks, by building sleek and prodigiously fast model.
 
 
-Steps:
+#### Steps:
+<br/>
 Run the model using file "transferModel.py"
+
+#### Overview:
+* transferModel file imports createTransferCodes file
+* createTransferCodes does following things:
+  * download the VGG16 model data (.npy file)
+  * apply transformations if required
+  * create transfer codes and store them in the project directory
+
+
 
 Note:
 Images transformations are created if number of images for any class are less than 500
