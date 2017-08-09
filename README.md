@@ -13,3 +13,5 @@ References:
 Image transformation: https://github.com/vxy10/ImageAugmentation
 <br/>
 VGG16 Model: https://github.com/machrisaa/tensorflow-vgg
+<br/>
+Progress bar: https://blog.shichao.io/2012/10/04/progress_speed_indicator_for_urlretrieve_in_python.html
